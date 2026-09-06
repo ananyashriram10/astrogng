@@ -682,20 +682,21 @@ export default function App() {
                   <div className="candidate-list" role="list">
                   {result.candidates.map((item, index) => (
                     <button
-                      role="listitem"
+                      type="button"
                       key={item.candidate_id}
-                      className={index === candidateIndex ? 'selected' : ''}
+                      className="candidate-card-static"
                       onClick={() => setCandidateIndex(index)}
                     >
-                      <span className="candidate-rank">{String(index + 1).padStart(2, '0')}</span>
-                      <div>
-                        <strong>{item.candidate_id}</strong>
-                        <small>{item.period_days.toFixed(3)} day orbit</small>
+                      <div className="candidate-card-copy">
+                        <span className="candidate-card-title">
+                          <span className="candidate-rank">{String(index + 1).padStart(2, '0')}</span>
+                          {item.candidate_id}
+                        </span>
+                        <span className="candidate-card-meta">
+                          {item.period_days.toFixed(3)} day orbit · {Math.round(item.confidence * 100)}% confidence
+                        </span>
                       </div>
                       <MiniSignal candidate={item} />
-                      <b className={item.disposition === 'planet-like' ? 'good' : 'risk'}>
-                        <AnimatedNumber value={item.confidence * 100} />%
-                      </b>
                     </button>
                   ))}
                   </div>
