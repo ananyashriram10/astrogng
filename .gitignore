@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.DS_Store
+data/*.csv
+data/lightkurve/
+models/*.joblib
+models/*.metadata.json
+models/astrogng/
+astrogng.zip
+astrogng_bundle/
+
+# Large raw/generated artifacts
+/astrogng/
+/koi_lightcurves/mastDownload/
+/cache/
+/X_global_mast.npy
+/X_local_mast.npy
+/y_mast.npy
+
+# Frontend build and dependency output
+/web/node_modules/
+/web/dist/
+/web/.vercel/
+/web/.git-inner/
+
+.vercel
